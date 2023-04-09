@@ -1,0 +1,27 @@
+1.  -Fonction jouer() dur à lire dû à ses nombreuses conditions, il faudrait sans doute gérer les évènements de chaques types 
+    de Cases dans leur propre classe.
+    -Fonction lancerDes() probablement à déplacer dans la classe Joueur et peut être même créer une classe Des où un joueur 
+    possèdera chacun 2 dés.
+    -Il faudrait probablement séparer la fonction jouer de la classe Monopoly et la mettre dans une classe qui controllera le jeu. 
+    Cette nouvelle classe aurait pour attribut un type de Monopoly et sera passer en paramètre de jouer().
+    -Après le précédent point, on pourrait potentiellement faire de Monopoly une interface(en changeant possiblement son nom). 
+    Cela permettrait de créer des plateaux différents.
+    -La liste de joueur devrait être gérer par le controlleur du jeu, et être passer en paramètre du constructeur de Monopoly.
+    -La classe Propriete devrait être une classe abstraite, permettant ains la création de plusieurs case qui hériteront les attributs 
+    de Propriete(Pour le loyer) et de Case(Ex: Gare, ServicePublic, Terrain etc...)
+    -Afin de pouvoir implémenter une interface graphique dans le futur, il faudrait disposer d'une classe regroupant
+    toutes les interactions homme-machine(input et output)
+
+3.
+    1. Pour ce faire, j'ai créé une démonstration possible. Gare hérite de Propriete, ce qui permet de rajouter des poucentages(positifs ou négatifs)
+    sur le loyer. Aussi, le méthode evenement, méthode abstraite provenant de Case dont hérite Propriete pour être une nouvelle fois
+    redéfini si nécessaire.
+
+    2.Pour pouvoir créer un Monopoly Corse, il fallait que les différents Monopolys possèdent une base, une interface, qui sera instancié.
+    Cette implémentation est démontré avec BaseMonopoly, qui permet donc d'initialiser différents plateaux et le jeu est lancé à partir
+    d'un Controleur qui pssèdera une instance de BaseMonopoly. En plus de ça, grâce à la methode evenement, qu'importe les cases des nouveaux
+    plateaux, on pourra lancer leur évènement.
+
+    3.Pour l'ajout d'une interfacce graphique, on peut sa baser sur IHM, une classe gérant toutes les interactionns Homme-Machines.
+    L'on pourrait faire en sorte que cette classe devienne une interface et créer différentes IHM pour résulter, par exemple,
+    sur une IHM traduit dans plusieurs langages.
